@@ -14,6 +14,16 @@
 
 @implementation SimpleLists_UnitTest
 
+- (void)testSingleLinkedList
+{
+   [self testLinkedListClass:[SingleLinkedList class] nodeClass:[SingleLinkedNode class]];
+}
+
+- (void)testDoubleLinkedList
+{
+   [self testLinkedListClass:[DoubleLinkedList class] nodeClass:[DoubleLinkedNode class]];
+}
+
 /*
  list = List.new
  assert_nil(list.find("fred"))
@@ -41,58 +51,17 @@
  assert_equal([], list.values())
  */
 
-- (void)testSingleLinkedList
-{   
-   SingleLinkedList *list;
-   NSArray *array;
-   
-   list = [[SingleLinkedList alloc] init];
-   STAssertNil([list nodeWithString:@"fred"], nil);
-   [list add:[SingleLinkedNode nodeWithString:@"fred"]];
-   STAssertEqualObjects(@"fred", [list nodeWithString:@"fred"].value, nil);
-   STAssertNil([list nodeWithString:@"wilma"], nil);
-   [list add:[SingleLinkedNode nodeWithString:@"wilma"]];
-   STAssertEqualObjects(@"fred", [list nodeWithString:@"fred"].value, nil);
-   STAssertEqualObjects(@"wilma", [list nodeWithString:@"wilma"].value, nil);
-   array = [NSArray arrayWithObjects:@"fred", @"wilma", nil];
-   STAssertEqualObjects(array, [list values], nil);
-   
-   [list release];
-   
-   list = [[SingleLinkedList alloc] init];
-   [list add:[SingleLinkedNode nodeWithString:@"fred"]];
-   [list add:[SingleLinkedNode nodeWithString:@"wilma"]];
-   [list add:[SingleLinkedNode nodeWithString:@"betty"]];
-   [list add:[SingleLinkedNode nodeWithString:@"barney"]];
-   array = [NSArray arrayWithObjects:@"fred", @"wilma", @"betty", @"barney", nil];
-   STAssertEqualObjects(array, [list values], nil);
-   [list remove:[list nodeWithString:@"wilma"]];
-   array = [NSArray arrayWithObjects:@"fred", @"betty", @"barney", nil];
-   STAssertEqualObjects(array, [list values], nil);
-   [list remove:[list nodeWithString:@"barney"]];
-   array = [NSArray arrayWithObjects:@"fred", @"betty", nil];
-   STAssertEqualObjects(array, [list values], nil);
-   [list remove:[list nodeWithString:@"fred"]];
-   array = [NSArray arrayWithObjects:@"betty", nil];
-   STAssertEqualObjects(array, [list values], nil);
-   [list remove:[list nodeWithString:@"betty"]];
-   array = [NSArray array];
-   STAssertEqualObjects(array, [list values], nil);
-   
-   [list release];
-}
-
-- (void)testDoubleLinkedList
+- (void)testLinkedListClass:(Class)LinkedListClass nodeClass:(Class)NodeClass
 {
-   DoubleLinkedList *list;
+   id <List> list;
    NSArray *array;
    
-   list = [[DoubleLinkedList alloc] init];
+   list = [[LinkedListClass alloc] init];
    STAssertNil([list nodeWithString:@"fred"], nil);
-   [list add:[DoubleLinkedNode nodeWithString:@"fred"]];
+   [list add:[NodeClass nodeWithString:@"fred"]];
    STAssertEqualObjects(@"fred", [list nodeWithString:@"fred"].value, nil);
    STAssertNil([list nodeWithString:@"wilma"], nil);
-   [list add:[DoubleLinkedNode nodeWithString:@"wilma"]];
+   [list add:[NodeClass nodeWithString:@"wilma"]];
    STAssertEqualObjects(@"fred", [list nodeWithString:@"fred"].value, nil);
    STAssertEqualObjects(@"wilma", [list nodeWithString:@"wilma"].value, nil);
    array = [NSArray arrayWithObjects:@"fred", @"wilma", nil];
@@ -100,11 +69,11 @@
    
    [list release];
    
-   list = [[DoubleLinkedList alloc] init];
-   [list add:[DoubleLinkedNode nodeWithString:@"fred"]];
-   [list add:[DoubleLinkedNode nodeWithString:@"wilma"]];
-   [list add:[DoubleLinkedNode nodeWithString:@"betty"]];
-   [list add:[DoubleLinkedNode nodeWithString:@"barney"]];
+   list = [[LinkedListClass alloc] init];
+   [list add:[NodeClass nodeWithString:@"fred"]];
+   [list add:[NodeClass nodeWithString:@"wilma"]];
+   [list add:[NodeClass nodeWithString:@"betty"]];
+   [list add:[NodeClass nodeWithString:@"barney"]];
    array = [NSArray arrayWithObjects:@"fred", @"wilma", @"betty", @"barney", nil];
    STAssertEqualObjects(array, [list values], nil);
    [list remove:[list nodeWithString:@"wilma"]];
