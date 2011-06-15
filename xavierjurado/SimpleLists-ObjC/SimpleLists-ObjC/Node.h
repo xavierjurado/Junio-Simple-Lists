@@ -8,6 +8,11 @@
 #import <Foundation/Foundation.h>
 
 
+/**
+ * Protocol representing an element of a List.
+ *
+ * @see List
+ */
 @protocol Node <NSObject>
 
 /** A simple string value */

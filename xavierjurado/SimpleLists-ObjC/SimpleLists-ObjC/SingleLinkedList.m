@@ -16,8 +16,11 @@
 
 
 @implementation SingleLinkedList
+
 @synthesize rootNode;
 @synthesize lastNode;
+
+#pragma mark - NSObject
 
 - (id)init
 {
