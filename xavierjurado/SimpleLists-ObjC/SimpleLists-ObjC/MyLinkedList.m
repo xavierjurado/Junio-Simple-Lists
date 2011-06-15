@@ -68,7 +68,8 @@
 
 - (NSArray *)values
 {
-   return [[self.nodes copy] autorelease];
+   /** @see [NSArray valueForKey:] method description */
+   return [self.nodes valueForKey:@"value"];
 }
 
 @end
