@@ -10,6 +10,8 @@
 #import "SingleLinkedNode.h"
 #import "DoubleLinkedList.h"
 #import "DoubleLinkedNode.h"
+#import "MyLinkedList.h"
+#import "MyLinkedNode.h"
 
 
 @implementation SimpleLists_UnitTest
@@ -22,6 +24,11 @@
 - (void)testDoubleLinkedList
 {
    [self testLinkedListClass:[DoubleLinkedList class] nodeClass:[DoubleLinkedNode class]];
+}
+
+- (void)testMyLinkedList
+{
+   [self testLinkedListClass:[MyLinkedList class] nodeClass:[MyLinkedNode class]];
 }
 
 /*
