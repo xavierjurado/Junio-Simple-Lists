@@ -13,8 +13,4 @@
 
 @property (nonatomic, copy) NSString *value;
 
-- (id)init;
-- (id)initWithString:(NSString *)value;
-+ (id)nodeWithString:(NSString *)value;
-
 @end

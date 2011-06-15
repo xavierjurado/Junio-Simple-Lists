@@ -16,6 +16,5 @@
 - (void)add:(SingleLinkedNode *)node;
 - (void)remove:(SingleLinkedNode *)node;
 - (SingleLinkedNode *)nodeWithString:(NSString *)string;
-- (NSArray *)values;
 
 @end

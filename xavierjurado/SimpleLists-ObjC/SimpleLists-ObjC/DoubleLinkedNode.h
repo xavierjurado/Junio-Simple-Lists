@@ -15,8 +15,4 @@
 @property (nonatomic, retain) DoubleLinkedNode *nextNode;
 @property (nonatomic, assign) DoubleLinkedNode *prevNode;
 
-- (id)init;
-- (id)initWithString:(NSString *)value;
-+ (id)nodeWithString:(NSString *)value;
-
 @end

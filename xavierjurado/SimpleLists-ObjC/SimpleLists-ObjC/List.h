@@ -10,6 +10,13 @@
 
 @protocol Node;
 
+/**
+ * Protocol for an abstract data structure that implements an ordered
+ * collection of values (nodes), where the same value may occur more than once.
+ *
+ * @see http://en.wikipedia.org/wiki/List_(computing)
+ * @see http://en.wikipedia.org/wiki/Linked_list
+ */
 @protocol List <NSObject>
 
 /**
@@ -28,6 +35,9 @@
 
 /**
  * Ask the list if it contains a given string.
+ *
+ * If the list contains multiple nodes with the same value, this method will
+ * return the first one.
  *
  * @param string The value to be searched.
  * @return Returns the node containing that string, or nil if no node was found

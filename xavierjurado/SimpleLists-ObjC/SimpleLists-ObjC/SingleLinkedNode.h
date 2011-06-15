@@ -14,8 +14,4 @@
 @property (nonatomic, copy) NSString *value;
 @property (nonatomic, retain) SingleLinkedNode *nextNode;
 
-- (id)init;
-- (id)initWithString:(NSString *)value;
-+ (id)nodeWithString:(NSString *)value;
-
 @end

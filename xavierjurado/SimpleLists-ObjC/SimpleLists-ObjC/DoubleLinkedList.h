@@ -16,6 +16,5 @@
 - (void)add:(DoubleLinkedNode *)node;
 - (void)remove:(DoubleLinkedNode *)node;
 - (DoubleLinkedNode *)nodeWithString:(NSString *)string;
-- (NSArray *)values;
 
 @end
